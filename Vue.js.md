@@ -214,3 +214,47 @@ Vue.createApp(VueApp).mount('#vue-app');
 ```
 
  - [활용된 사례 코드 링크](https://codepen.io/NTL-design/pen/qBRqGoR)
+ 
+ 
+   ---
+### 8. [v-show, v-if](https://www.youtube.com/watch?v=u1DtRdKyCRI)
+
+- v-show : 클릭 이벤트에 보여주고, 숨기는 기능은 매우 비번하게 구현되기에 아예 간단하게 구현가능한 방법으로 제공
+- 이벤트 대상 객체에 v-show = "imgVisible" 을 태그에 입력
+- @click="imgVisible = true;" /  @click="imgVisible = true;" 를 버튼 기능을 하는 태그에 입력하여 간단하게 구현
+- v-if : v-show는 디스플레이 속성을 none으로 숨기지만, v-if는 대상 객체를 삭제하여 숨겨진 상태에서는 해당 요소를 찾기 힘듬
+- v-else : v-if와 함께 if 문 처럼 활용할 수 있음
+- 아래의 예시와 같이 이미지가 숨겨졌을 때 텍스트가 보여지게 구현이 가능
+- 여러 가지로 응용이 가능하며 제이쿼리 대비 메뉴 클릭 이벤트에서 작동하는 기능 구현이 수월할 듯함
+
+  - 구현된 예시)
+
+```vue
+<div id="vue-app">
+  <h1>v-show</h1>
+  <button @click="imgVisible = true;">보여주기</button>
+  <button @click="imgVisible = false;">숨기기</button>
+  <hr>
+  <img v-show="imgVisible" :src="imgUrl" alt="">
+  
+  <h1>v-if</h1>
+  <button @click="imgVisible = true;">보여주기</button>
+  <button @click="imgVisible = false;">숨기기</button>
+  <hr>
+  <img v-if="imgVisible" :src="imgUrl" alt="">
+  <span v-else>{{imgUrl}}은(는) 숨겨짐</span>
+</div>
+```
+
+- [활용된 사례 코드 링크](https://codepen.io/NTL-design/pen/WNRRerK)
+ 
+ 
+---
+### 9. [v-for](https://www.youtube.com/watch?v=7UcHGmy2RhU)
+
+- 
+
+
+
+
+- [활용된 사례 코드 링크](https://codepen.io/NTL-design/pen/bGggeZE)
