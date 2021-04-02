@@ -548,3 +548,18 @@ const vueApp1 = vueAppBuilder.mount('#vue-app');
 - java 뿐만 아니라 다른 언어로 프로그래밍을 할 때도 기본적인 CRUD 구현 알고리즘은 숙지, 숙련해야함
 
 - [활용된 사례 코드 링크](https://codepen.io/NTL-design/pen/eYggwgZ?editors=0010)
+
+
+---
+### 20. [할일 리스트, 리스트 부분을 todo-list 컴포넌트로 분리](https://www.youtube.com/watch?v=CmVI4gDDnx0&feature=youtu.be)
+
+- 복잡한 html 코드 부분을 컴포넌트로 분리하여 작성하여 재사용에 있어 유리함
+- props 설정값 입력 필수
+
+- Vue에는 self-closing 이 지원되지 않음
+
+- 최근 대부분의 프레임워크에서 컴포넌트 단위로 작업하는 이유를 확인 가능
+- 컴포넌트로 구성한 부분은 바로 재사용이 가능하고 필요한 부분만 수정해서 프로젝트별로 커스터마이징이 가능
+
+
+- [활용된 사례 코드 링크](https://codepen.io/NTL-design/pen/KKaWovP)
