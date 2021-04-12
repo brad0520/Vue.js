@@ -3,7 +3,8 @@
 - 주소 : [https://to2.kr/cfS](https://to2.kr/cfS)
 - 내용 : Web Development with Vue.js
 - 공부 Vlog
- 
+- [참고동영상](https://www.youtube.com/watch?v=qZXt1Aom3Cs)
+
 ---
 ## 2021-03-31
 ### Vue.js란?
@@ -186,36 +187,36 @@ Vue.createApp(VueApp).mount('#vue-app');
 ```
 - JS 코드(Vue.js)
 
-```js
-    const imgClass = Vue.ref();
-    
-    // 아래의 코드는 red, blue 클래스의 초기화로 사용
-    // 주석처리하면 이후 코드가 실행이 되지 않음
-    // 초기화가 아래와 같이 필요함
-    imgClass.value = {
-      red:false,
-      blue:false
-    };
-    
-    const activeRed = () => {
-      imgClass.value.red = true;
-      imgClass.value.blue = false;
-    };
-    
-    const activeBlue = () => {
-      imgClass.value.red = false;
-      imgClass.value.blue = true;
-    };
-    
-    // 제어하는 클래스가 다수인 경우 for문을 사용하는 것이 효율적임(필수 체크!!!)
-    const inactiveAll = () => {
-      for ( let key in imgClass.value ) {
-        imgClass.value[key] = false;
-      }
-      // 위 코드와 아래 코드는 같은 의미
-      // imgClass.value.red = false;
-      // imgClass.value.blue = false;
-    };
+```vue
+const imgClass = Vue.ref();
+
+// 아래의 코드는 red, blue 클래스의 초기화로 사용
+// 주석처리하면 이후 코드가 실행이 되지 않음
+// 초기화가 아래와 같이 필요함
+imgClass.value = {
+red:false,
+blue:false
+};
+
+const activeRed = () => {
+imgClass.value.red = true;
+imgClass.value.blue = false;
+};
+
+const activeBlue = () => {
+imgClass.value.red = false;
+imgClass.value.blue = true;
+};
+
+// 제어하는 클래스가 다수인 경우 for문을 사용하는 것이 효율적임(필수 체크!!!)
+const inactiveAll = () => {
+for ( let key in imgClass.value ) {
+imgClass.value[key] = false;
+}
+// 위 코드와 아래 코드는 같은 의미
+// imgClass.value.red = false;
+// imgClass.value.blue = false;
+};
 ```
 
  - [활용된 사례 코드 링크](https://codepen.io/NTL-design/pen/qBRqGoR)
