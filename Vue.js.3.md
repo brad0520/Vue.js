@@ -564,3 +564,16 @@ const vueApp1 = vueAppBuilder.mount('#vue-app');
 
 
 - [활용된 사례 코드 링크](https://codepen.io/NTL-design/pen/KKaWovP)
+
+
+---
+## 2021-06-13 
+- 뷰 강의 독학
+  - 강의 자료 [참고](https://codepen.io/jangka44/live/NWdqRER)
+  - 뷰 활용 프로젝트 강의 수강 후 연습
+  - 상장례 어플 유지, 보수 및 이후 프로젝트 진행에 활용
+  
+- Vue3.0
+  - 컴포넌트 별로 스크립트 및 css 속성을 줄 수 있으며, 독립적으로 적용
+  - 재활용성이 우수함
+  
