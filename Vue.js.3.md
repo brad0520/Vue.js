@@ -28,43 +28,43 @@
 
 - 아래와 같이 html, js 작성
 
-```html
-<!-- vue 3.0 불러오기 -->
-<script src="https://unpkg.com/vue@next"></script>
+    ```html
+    <!-- vue 3.0 불러오기 -->
+    <script src="https://unpkg.com/vue@next"></script>
 
-<div id="vue-app">
-  <!-- 변수는 {{변수명}}의 형식으로 선언 -->
-  <!--   변수로 선언된 부분은 정적이 아닌 동적인 부분으로 Vue를 통해 활용 가능 -->
-  이름 : {{name}}
-  <br>
-  나이 : {{age}}
-</div>
-```
+    <div id="vue-app">
+      <!-- 변수는 {{변수명}}의 형식으로 선언 -->
+      <!--   변수로 선언된 부분은 정적이 아닌 동적인 부분으로 Vue를 통해 활용 가능 -->
+      이름 : {{name}}
+      <br>
+      나이 : {{age}}
+    </div>
+    ```
 
-```js
-const test = {
-  setup() {
-    // 변수 선언  
-    const name = "Brad";
-    const age = 22;
-    // 저장한 변수 반환
-    return {
-      name,
-      age
-    }
-  },
-};
+    ```vue.js
+    const test = {
+      setup() {
+        // 변수 선언  
+        const name = "Brad";
+        const age = 22;
+        // 저장한 변수 반환
+        return {
+          name,
+          age
+        }
+      },
+    };
 
-// Vue를 통해 HTML의 DOM 요소에 연결됨(mount)
-Vue.createApp(test).mount('#vue-app');
-```
+    // Vue를 통해 HTML의 DOM 요소에 연결됨(mount)
+    Vue.createApp(test).mount('#vue-app');
+    ```
 ---
 ### 2. [참조 변수 선언](https://www.youtube.com/watch?v=KdV6bI9WGZk)
 - Vue.ref(변수) 와 같이 value 값을 입력하면 const로 선언된 변수에도 실시간으로 변동된 값을 반영할 수 있음
 - 참조변수로 선언된 변수의 값을 사용하기 위해서는 변수.value와 같이 사용해야함
  
 - 아래와 같은 코드로 구현 가능 예시
-```js
+```vue.js
 const VueApp = {
   setup() {
     const name = "Brad";
@@ -92,7 +92,7 @@ Vue.createApp(VueApp).mount('#vue-app');
 
 - 다른 변수값에 따라 값이 달라지는 변수의 경우 computed를 활용해서 자동으로 반영된 값을 산출하고 웹에 전달 가능
 
-```
+```vue.js
     // computed를 활용하여 참조하는 값의 변화가 자동으로 결과값에 반영이 되도록 할 수 있음
     const isAdult = Vue.computed(() => age.value >= 20);
 ```
@@ -145,7 +145,7 @@ Vue.createApp(VueApp).mount('#vue-app');
 - CSS 스타일 적용을 태그에 바로 적용함에 있어 불편함을 바인딩을 통해 css소스코드를 편집하 듯이 할 수 있음
 - 웹 구성 요소들을 제어하는데에 있어 제이쿼리보다 편리함
 
-```js
+```vue.js
     // imgStyle 변수의 값으로 css 스타일 속성을 제어
     const imgStyle = Vue.ref({});
     
@@ -188,7 +188,7 @@ Vue.createApp(VueApp).mount('#vue-app');
 ```
 - JS 코드(Vue.js)
 
-```vue
+```vue.js
 const imgClass = Vue.ref();
 
 // 아래의 코드는 red, blue 클래스의 초기화로 사용
@@ -238,22 +238,22 @@ imgClass.value[key] = false;
 
   - 구현된 예시)
 
-```vue
-<div id="vue-app">
-  <h1>v-show</h1>
-  <button @click="imgVisible = true;">보여주기</button>
-  <button @click="imgVisible = false;">숨기기</button>
-  <hr>
-  <img v-show="imgVisible" :src="imgUrl" alt="">
-  
-  <h1>v-if</h1>
-  <button @click="imgVisible = true;">보여주기</button>
-  <button @click="imgVisible = false;">숨기기</button>
-  <hr>
-  <img v-if="imgVisible" :src="imgUrl" alt="">
-  <span v-else>{{imgUrl}}은(는) 숨겨짐</span>
-</div>
-```
+    ```vue.js
+    <div id="vue-app">
+      <h1>v-show</h1>
+      <button @click="imgVisible = true;">보여주기</button>
+      <button @click="imgVisible = false;">숨기기</button>
+      <hr>
+      <img v-show="imgVisible" :src="imgUrl" alt="">
+
+      <h1>v-if</h1>
+      <button @click="imgVisible = true;">보여주기</button>
+      <button @click="imgVisible = false;">숨기기</button>
+      <hr>
+      <img v-if="imgVisible" :src="imgUrl" alt="">
+      <span v-else>{{imgUrl}}은(는) 숨겨짐</span>
+    </div>
+    ```
 
 - [활용된 사례 코드 링크](https://codepen.io/NTL-design/pen/WNRRerK)
  
@@ -264,48 +264,48 @@ imgClass.value[key] = false;
 - HTML 내에서 for문을 구현 가능 : v-for = "i in number" 사용
   - HTML 코드
 
-```html
-<div id="vue-app">
-  <input :value="dan" ref="inputNumElRef" type="number" placeholder="구구단">
-  <button @click="changeDan" type="button">출력</button>
-  
-  <div v-for="i in 9">
-    {{dan}} * {{i}} = {{dan * i}}
+  ```html
+  <div id="vue-app">
+    <input :value="dan" ref="inputNumElRef" type="number" placeholder="구구단">
+    <button @click="changeDan" type="button">출력</button>
+
+    <div v-for="i in 9">
+      {{dan}} * {{i}} = {{dan * i}}
+    </div>
   </div>
-</div>
-```
+  ```
 
   - Vue 코드
 
-```vue
-const VueApp = {
-  setup() {
-    const inputNumElRef = Vue.ref();
-    const dan = Vue.ref(5);
-    
-    const changeDan = () => {
-      const inputNum = inputNumElRef.value;
-      inputNum.value = inputNum.value.trim();
-      
-      if ( inputNum.value.length == 0 ) {
-        alert('숫자를 입력해주세요.');
-        inputNum.focus();
-        return;
-      }
-      
-      dan.value = inputNum.value;
-    }
-    
-    return {
-      inputNumElRef,
-      changeDan,
-      dan
-    }
-  }
-};
+    ```vue.js
+    const VueApp = {
+      setup() {
+        const inputNumElRef = Vue.ref();
+        const dan = Vue.ref(5);
 
-const vueApp1 = Vue.createApp(VueApp).mount('#vue-app');
-```
+        const changeDan = () => {
+          const inputNum = inputNumElRef.value;
+          inputNum.value = inputNum.value.trim();
+
+          if ( inputNum.value.length == 0 ) {
+            alert('숫자를 입력해주세요.');
+            inputNum.focus();
+            return;
+          }
+
+          dan.value = inputNum.value;
+        }
+
+        return {
+          inputNumElRef,
+          changeDan,
+          dan
+        }
+      }
+    };
+
+    const vueApp1 = Vue.createApp(VueApp).mount('#vue-app');
+    ```
 
 - [활용된 사례 코드 링크](https://codepen.io/NTL-design/pen/bGggeZE)
 
@@ -318,17 +318,17 @@ const vueApp1 = Vue.createApp(VueApp).mount('#vue-app');
 - v-if 와 v-for 를 함께 사용이 가능
 - v-for="i in 9" 에서 i는 1부터 9까지 사용되고, index를 지정할 경우는 0부터 8까지 사용됨
 
-```html
-<div id="vue-app">
-  <!-- 입력값을 입력과 동시에 반영하는 @input 사용 -->
-  <!-- 입력값을 받는 변수는 $event.target.value 활용 -->
-  <input @input="dan = $event.target.value" :value="dan" type="number" placeholder="구구단">
-  
-  <div v-if="!isNaN(dan) && dan > 0" v-for="i in 9">
-    {{dan}} * {{i}} = {{dan * i}}
+  ```html
+  <div id="vue-app">
+    <!-- 입력값을 입력과 동시에 반영하는 @input 사용 -->
+    <!-- 입력값을 받는 변수는 $event.target.value 활용 -->
+    <input @input="dan = $event.target.value" :value="dan" type="number" placeholder="구구단">
+
+    <div v-if="!isNaN(dan) && dan > 0" v-for="i in 9">
+      {{dan}} * {{i}} = {{dan * i}}
+    </div>
   </div>
-</div>
-```
+  ```
 
 
 - [활용된 사례 코드 링크](https://codepen.io/NTL-design/pen/wvggEXJ?editors=1010)
@@ -344,17 +344,17 @@ const vueApp1 = Vue.createApp(VueApp).mount('#vue-app');
 - option과 label 등에서도 동일하게 구현 가능
 - 범위를 지정할 때는 최대, 최솟값을 지정하기
 
-```
-    <label style="display:block;" v-for="(i, index) in inputMaxDan" :key="index">
-      <span>{{i}} 단</span>
-      <input v-model="dan" type="radio" name="dan" :value="i">
-    </label>
-  </div>
-  <select v-model="dan">
-    <option :value="i" v-for="(i, index) in inputMaxDan" :key="index">{{i}} 단</option>
-  </select>
-  <input v-model="dan" type="number" min="1" pattern="\d*" placeholder="구구단">
-```
+  ```html
+      <label style="display:block;" v-for="(i, index) in inputMaxDan" :key="index">
+        <span>{{i}} 단</span>
+        <input v-model="dan" type="radio" name="dan" :value="i">
+      </label>
+    </div>
+    <select v-model="dan">
+      <option :value="i" v-for="(i, index) in inputMaxDan" :key="index">{{i}} 단</option>
+    </select>
+    <input v-model="dan" type="number" min="1" pattern="\d*" placeholder="구구단">
+  ```
 
 - [활용된 사례 코드 링크](https://codepen.io/NTL-design/pen/KKaaxjR)
 
@@ -377,33 +377,33 @@ const vueApp1 = Vue.createApp(VueApp).mount('#vue-app');
 - props : 생성자 매서드
 - props에 태그로 사용할 변수를 스트링으로 설정하면 template에서 태그로 활용할 수 있음
 
-```
-  <square-box-1 class="bg-red" text-bg-class="bg-gold">내용4</square-box-1>
-```
+  ```html
+    <square-box-1 class="bg-red" text-bg-class="bg-gold">내용4</square-box-1>
+  ```
 
-```
-const VueApp = {
-  setup() {
-  }
-};
-
-const vueApp1 = Vue.createApp(VueApp)
-
-vueApp1.component('square-box-1', {
-  props: {
-    'textBgClass': {
-      type:String
+  ```vue.js
+  const VueApp = {
+    setup() {
     }
-  },
-  template: `
-    <div class="square-box-1">
-      <span :class="textBgClass"><slot /></span>
-    </div>
-  `
-});
+  };
 
-vueApp1.mount('#vue-app');
-```
+  const vueApp1 = Vue.createApp(VueApp)
+
+  vueApp1.component('square-box-1', {
+    props: {
+      'textBgClass': {
+        type:String
+      }
+    },
+    template: `
+      <div class="square-box-1">
+        <span :class="textBgClass"><slot /></span>
+      </div>
+    `
+  });
+
+  vueApp1.mount('#vue-app');
+  ```
 
 
 - [활용된 사례 코드 링크](https://codepen.io/NTL-design/pen/ZELLmeW)
@@ -418,13 +418,13 @@ vueApp1.mount('#vue-app');
 
   - 코드 예시
 
-```
-<template id="vue-component__square-box-1">
-  <div class="square-box-1">
-    <span :class="textBgClass"><slot /></span>
-  </div>
-</template>
-```
+    ```html
+    <template id="vue-component__square-box-1">
+      <div class="square-box-1">
+        <span :class="textBgClass"><slot /></span>
+      </div>
+    </template>
+    ```
 
 - [활용된 사례 코드 링크](https://codepen.io/NTL-design/pen/OJWWaEe)
 
@@ -439,61 +439,61 @@ vueApp1.mount('#vue-app');
 
 - Vue 구조 : setup, props, template
 
-```
-<template id="vue-component__square-box-1">
-  <div @click="toggleBoxShadow" class="square-box-1 vue-component" :style="divStyle">
-    <span :class="textBgClass"><slot /></span>
-  </div>
-</template>
-```
+  ```html
+  <template id="vue-component__square-box-1">
+    <div @click="toggleBoxShadow" class="square-box-1 vue-component" :style="divStyle">
+      <span :class="textBgClass"><slot /></span>
+    </div>
+  </template>
+  ```
 
-```
-const VueApp = {
-  setup() {
-    const maxCount = Vue.ref(10);
+  ```vue.js
+  const VueApp = {
+    setup() {
+      const maxCount = Vue.ref(10);
 
-    return {
-      maxCount
-    }
-  },
-  mounted() {
-    $('.square-box-1:not(.vue-component)').click(function() {
-      $(this).css('box-shadow', '10px 10px 10px red');
-    });
-  }
-};
-
-const vueAppBuilder = Vue.createApp(VueApp)
-
-vueAppBuilder.component('square-box-1', {
-  setup() {
-    const boxShadowStatus = Vue.ref(false);
-
-    const toggleBoxShadow = () => {
-      boxShadowStatus.value = !boxShadowStatus.value;
-    };
-
-    const divStyle = Vue.computed(() => {
       return {
-        boxShadow:boxShadowStatus.value ? '10px 10px 10px red' : ''
+        maxCount
+      }
+    },
+    mounted() {
+      $('.square-box-1:not(.vue-component)').click(function() {
+        $(this).css('box-shadow', '10px 10px 10px red');
+      });
+    }
+  };
+
+  const vueAppBuilder = Vue.createApp(VueApp)
+
+  vueAppBuilder.component('square-box-1', {
+    setup() {
+      const boxShadowStatus = Vue.ref(false);
+
+      const toggleBoxShadow = () => {
+        boxShadowStatus.value = !boxShadowStatus.value;
       };
-    });
 
-    return {
-      divStyle,
-      toggleBoxShadow
-    }
-  },
-  props: {
-    'textBgClass': {
-      type:String
-    }
-  },
-  template: '#vue-component__square-box-1'
-});
+      const divStyle = Vue.computed(() => {
+        return {
+          boxShadow:boxShadowStatus.value ? '10px 10px 10px red' : ''
+        };
+      });
 
-const vueApp1 = vueAppBuilder.mount('#vue-app');
-```
+      return {
+        divStyle,
+        toggleBoxShadow
+      }
+    },
+    props: {
+      'textBgClass': {
+        type:String
+      }
+    },
+    template: '#vue-component__square-box-1'
+  });
+
+  const vueApp1 = vueAppBuilder.mount('#vue-app');
+  ```
 
 
 - [활용된 사례 코드 링크](https://codepen.io/NTL-design/pen/poRRQGE)
@@ -684,8 +684,42 @@ const vueApp1 = vueAppBuilder.mount('#vue-app');
       - input, select, textarea 태그에서만 사용 가능
       
   - 이벤트 처리 
-    - 
+    - event인자를 넘기면 해당 돔 요소의 이벤트 객체에 접근할 수 있음
     
   - 고급 템플릿 기법
-    - 
+    - computed
+      - data속성 값의 변화에 따라 자동으로 다시 연산
+      - 캐싱
+      - 복잡한 연산을 반복 수행해서 화면에 나타내야 하는 경우 methods 속성을 이용하는 것보다 성능 면에서 효율적
+      
+    - watch
+      - 데이터 변화를 감지하여 자동으로 특정 로직을 수행
+      - 데이터 호출과 같이 시간이 상대적으로 더 많이 소모되는 비동기 처리에 적합
+      
+- 뷰 프로젝트 구성 방법
+  - 싱글 파일 컴포넌트 체계
+    ```vue.js
+    <template>
+      <!-- HTML 태그 내용 --!>
+    </template>
+
+    <script>
+    export default {
+      // 자바스크립트 내용  
+    }
+    </script>
+
+    <style>
+      /* CSS 스타일 내용 */
+    </style>
+    ```
+  - 뷰 CLI
+    - 싱글 파일 컴포넌트 체계를 사용하기 위해서는 .vue 파일을 웹 브라우저가 인식할 수 있는 형태의 파일로 변환해주는 웹팩이나 브라우저리파이와 같은 도구가 필요
+      - 웹팩(Webpack) : 웹 앱의 자원들을 바자스크립트 모듈로 변화해 하나로 묶어 웹 성능을 향상시켜 주는 자바스크립트 모듈 번들러
+  
+  - 뷰 로더 
+    - 웹팩에서 지원하는 라이브러리
+    - 싱글 파일 컴포넌트 체계에서 사용하는 .vue파일의 내용을 브라우저에서 실행 가능한 웹 페이지의 형태로 변환
+    
+  
     
