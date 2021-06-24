@@ -721,5 +721,19 @@ imgClass.value[key] = false;
     - 웹팩에서 지원하는 라이브러리
     - 싱글 파일 컴포넌트 체계에서 사용하는 .vue파일의 내용을 브라우저에서 실행 가능한 웹 페이지의 형태로 변환
     
+- 컴포넌트 등록
+  - 싱글파일 컴포넌트 체계에서는 특정 컴포넌트에서 다른 위치에 있는 컴포넌트의 내용을 불러올 때 아래와 같이 import from 구문을 사용
   
+    ```vue.js
+    <script>
+      import Header from './components/Header.vue'
+
+      export default {
+        component: {
+          'Header': Header
+        }
+      }
+    </script>
+    ```
     
+  
